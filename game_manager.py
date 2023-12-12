@@ -4,24 +4,27 @@ from pygame.locals import *
 import numpy as np
 
 class Level:
-    def __init__(self, display, gameStateManager):
+    def __init__(self, display, x, y, color = None):
         self.display = display
-        self.gameStateManager = gameStateManager
+        self.x = x
+        self.y = y
 
-        self.color = list(np.random.choice(range(256), size=3))
+        if color == None:
+            self.color = list(np.random.choice(range(256), size=3))
+        else:
+            self.color = color
 
 
     def run(self):
         self.display.fill(self.color)
 
-    def change_level(self):
-        self.color = list(np.random.choice(range(256), size=3))
+    def get_coordinates(self):
+        return (self.x, self.y)
 
 
 class Start:
-    def __init__(self, display, gameStateManager):
+    def __init__(self, display):
         self.display = display
-        self.gameStateManager = gameStateManager
 
     def run(self):
         self.display.fill('red')

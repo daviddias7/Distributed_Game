@@ -7,14 +7,19 @@ vec = pygame.math.Vector2
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        self.surf = pygame.Surface((30, 30))
-        self.surf.fill((255, 255, 255))
-        self.rect = self.surf.get_rect(center = (10, 420))
 
-        self.pos = vec((30, 385))
-        self.vel = vec(0, 0)
+        self.activate()
 
-        self.pos_in_matrix = (0, 0)
+    def activate(self):
+            self.surf = pygame.Surface((30, 30))
+            self.surf.fill((255, 255, 255))
+            self.rect = self.surf.get_rect(center = (10, 420))
+
+            self.pos = vec((30, 385))
+            self.vel = vec(0, 0)
+
+            self.pos_in_matrix = (0, 0)
+
 
     def move(self):
         self.vel = vec(0, 0)
